@@ -21,10 +21,10 @@ CREATE TABLE Festival(
 );
 
 CREATE TABLE Client(
-    CCNumber INTEGER PRIMARY KEY,
+    CCNumber TEXT PRIMARY KEY,
     Name TEXT,
-    IBAN INTEGER,
-    NIF INTEGER,
+    IBAN TEXT,
+    NIF TEXT,
     BirthDate DATE,
     Address TEXT,
     PhoneNumber TEXT,
@@ -41,7 +41,7 @@ CREATE TABLE Sponsorship(
     FestivalID INTEGER,
     SponsorName TEXT,
     ContributionType TEXT,
-    ContributionValue FLOAT,
+    ContributionValue REAL,
     ContributionDescription TEXT,
 
     PRIMARY KEY(FestivalID, SponsorName),
@@ -55,7 +55,7 @@ CREATE TABLE TicketType(
     TicketTypeID INTEGER PRIMARY KEY,
     FestivalID INTEGER NOT NULL,
     Name TEXT,
-    PRICE FLOAT,
+    PRICE REAL,
 
     FOREIGN KEY (FestivalID)
         REFERENCES Festival(FestivalID)
@@ -201,9 +201,9 @@ CREATE TABLE ConsistsOf(
 
 CREATE TABLE TicketPurchase(
     PurchaseID INTEGER PRIMARY KEY,
-    CCNumber INTEGER NOT NULL,
+    CCNumber TEXT NOT NULL,
     Day DATE,
-    Value FLOAT,
+    Value REAL,
     PaymentMethod TEXT,
 
     FOREIGN KEY (CCNumber)
