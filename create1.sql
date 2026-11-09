@@ -1,4 +1,4 @@
-PRAGMA foreign_keys = ON
+PRAGMA foreign_keys = ON;
 
 CREATE TABLE Organizer(
     OrganizerID INTEGER PRIMARY KEY,
@@ -193,9 +193,9 @@ CREATE TABLE ConsistsOf(
     MemberID INTEGER,
 
     PRIMARY KEY (ArtistID, MemberID),
-    FOREIGN KEY ArtistID
+    FOREIGN KEY (ArtistID)
         REFERENCES Artist(ArtistID),
-    FOREIGN KEY MemberID
+    FOREIGN KEY (MemberID)
         REFERENCES Member(MemberID)
 );
 
@@ -215,8 +215,8 @@ CREATE TABLE Ticket(
     PurchaseID INTEGER NOT NULL,
     TicketTypeID INTEGER NOT NULL,
 
-    FOREIGN KEY PurchaseID
+    FOREIGN KEY (PurchaseID)
         REFERENCES TicketPurchase(PurchaseID),
-    FOREIGN KEY TicketTypeID
+    FOREIGN KEY (TicketTypeID)
         REFERENCES TicketType(TicketTypeID)
 )
